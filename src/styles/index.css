@@ -1,12 +1,153 @@
+:root {
+    --primary-color: #3498bd;
+    --primary-hover: #2980b9;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+    --sucess-color: #2ecc71;
+    --background-color: #dde1e7;
+    --border-color: #dde1e7;
+    --text-color: #2c3e50;
+    --text-secundary: #6c757d;
+    --shadow: 0 4px 20px rgba (0, 0, 0, 0.08)
+}
 
-/* 
+body{
+    Font-family: 'Inter', system-ui, apple-system, sans-serif;
+    background: linear-gradient(135deg,#f6f8fb 0%, #83ace9 100%);
+    color: var(--text-color);
+    line-height:1.6;
+    min-height: 100vh;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 
-*/
+}
+
+.todo-list {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 2.5rem; 
+
+}
+
+h1 {
+    text-align: clearInterval;
+    background: linear gradient(135deg, var(--primary-color), var(--sucess-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: traspartent;
+    font-size:2rem;
+    font-weight: 700;
+    margin-bottom:2rem;
+}
+
+.input-container{
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+input{
+    width: 100%;
+    padding: 1rem 3rem 1 rem 1.25rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius:12px;
+    background-color: #f8fafc;
+    transition: all 0.3s escape;
+}
+input:focus {
+    outline: none;
+    border-color:var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+    background-color: white;
+}
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+li {
+    padding: 1 rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s escape;
+    border-radius: 0px;
+}li:last-child {
+    border-bottom: none;
+}
+
+li:hover {
+    background-color: #f8fafc;
+    transform: transLatex(4px);
+}
+
+.checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s escape;
+    position: relative;
+}
+
+.checkbox:checked{
+    background-color: var(--success-color);
+    border-color: var(--succes-color);
+}
+.checkbox:checked::after {
+    content:'✔️';
+    color: white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, 50%);
+}
+
+.task-label {
+    flex: 1;
+    font-size: 1.125rem;
+    transition: all 0.2s ease;
+}
+.task-label.completed {
+    text-decoration: line-through;
+    color: var(--text-secundary);
+    opacity: 0.7;
+}
+
+.delete-icon {
+    opacity:0;
+    color: var(--danger-color);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding:0,5rem;
+    border-radius: 6px;
+    transition: all 0,2s ease;
+}
+
+li:hover .delete-icon {
+    opacity:1;
+}
+.delete-icon:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    transform:scale(1.1);
+}
+.task-count {
+    margin-top: 2rem;
+    color: var(--text-secundary);
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
